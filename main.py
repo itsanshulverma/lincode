@@ -37,6 +37,6 @@ def main():
 
 if __name__ == "__main__":
     ch = 'Y'
-    while(ch=='y' or ch=='Y'):
+    while(ch.lower() =='y'):
         main()
-        ch = input("\nContinue? [Y/N] : ")
+        ch = input("\nPress Y to continue? : ")
