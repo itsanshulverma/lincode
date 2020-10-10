@@ -8,7 +8,7 @@ import numpy as np
 from . import line_coding_schemes as lcs
 
 def plot_UNRZ(bits):
-    fig, axs = plt.subplots()
+    fig, axs = plt.subplots(figsize=(7, 4))
     x, y = lcs.uni_NRZ(bits)
     axs.plot(x, y, linewidth=3)
     axs.set(xlabel='Time', ylabel='Amplitude', title='Unipolar: NRZ')
@@ -19,7 +19,7 @@ def plot_UNRZ(bits):
     plt.show()
 
 def plot_PNRZ(bits):
-    fig, axs = plt.subplots(2, sharex=True)
+    fig, axs = plt.subplots(2, figsize=(6, 6), sharex=True)
     x, y = lcs.pol_NRZL(bits)
     axs[0].plot(x, y, linewidth=3)
     axs[0].set_title('Polar: NRZ-L')
@@ -42,7 +42,7 @@ def plot_PNRZ(bits):
     plt.show()
 
 def plot_PRZ(bits):
-    fig, axs = plt.subplots()
+    fig, axs = plt.subplots(figsize=(7, 4))
     x, y = lcs.pol_RZ(bits)
     axs.plot(x, y, linewidth=3)
     axs.set_title('Polar RZ')
@@ -54,7 +54,7 @@ def plot_PRZ(bits):
     plt.show()
 
 def plot_Biphase(bits):
-    fig, axs = plt.subplots(2, sharex=True)
+    fig, axs = plt.subplots(2, figsize=(6, 6), sharex=True)
     x, y = lcs.MANCHESTER(bits)
     axs[0].plot(x, y, linewidth=3)
     axs[0].set(ylabel='Amplitude', title='Biphase: Manchester')
@@ -75,7 +75,7 @@ def plot_Biphase(bits):
     plt.show()
 
 def plot_Bipolar(bits):
-    fig, axs = plt.subplots(2, sharex=True)
+    fig, axs = plt.subplots(2, figsize=(6, 6), sharex=True)
     x, y = lcs.AMI(bits)
     axs[0].plot(x, y, linewidth=3)
     axs[0].set(ylabel='Amplitude', title='Bipolar: AMI(Alternate Mark Inversion)')
