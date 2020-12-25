@@ -20,16 +20,22 @@ def main():
         quit()
     elif ch>=1 and ch<=5:
         bits = input("Input Bits: ")
-        print("Plotting figure...Done!\nOpening figure window...")
         if ch == 1:
+            print("Plotting figure...Done!\nOpening figure window...")
             pl.plot_UNRZ(bits)
         elif ch == 2:
-            pl.plot_PNRZ(bits)
+            startbit = int(input("Start Bit: "))
+            print("Plotting figure...Done!\nOpening figure window...")
+            pl.plot_PNRZ(bits, startbit)
         elif ch == 3:
+            print("Plotting figure...Done!\nOpening figure window...")
             pl.plot_PRZ(bits)
         elif ch == 4:
-            pl.plot_Biphase(bits)
+            startbit = int(input("Start Bit: "))
+            print("Plotting figure...Done!\nOpening figure window...")
+            pl.plot_Biphase(bits, startbit)
         elif ch == 5:
+            print("Plotting figure...Done!\nOpening figure window...")
             pl.plot_Bipolar(bits)
         print("Closing figure window...Done!")
     else:

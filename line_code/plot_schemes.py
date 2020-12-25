@@ -18,7 +18,7 @@ def plot_UNRZ(bits):
     axs.grid()
     plt.show()
 
-def plot_PNRZ(bits):
+def plot_PNRZ(bits, startbit):
     fig, axs = plt.subplots(2, figsize=(6, 6), sharex=True)
     x, y = lcs.pol_NRZL(bits)
     axs[0].plot(x, y, linewidth=3)
@@ -28,7 +28,7 @@ def plot_PNRZ(bits):
     axs[0].set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
     axs[0].set_yticklabels(['', '-1', '', '0', '', '1', ''])
     axs[0].grid()
-    x, y, ix0, i0, ix1, i1 = lcs.pol_NRZI(bits)
+    x, y, ix0, i0, ix1, i1 = lcs.pol_NRZI(bits, startbit)
     axs[1].plot(x, y, linewidth=3)
     p1, = axs[1].plot(ix0, i0, 'o', markeredgecolor="black", markerfacecolor="white", markersize=7, label="Next bit is 0: No Inversion")
     p2, = axs[1].plot(ix1, i1, 'ok', markersize=7, label="Next bit is 1: Inversion")
@@ -53,7 +53,7 @@ def plot_PRZ(bits):
     axs.grid()
     plt.show()
 
-def plot_Biphase(bits):
+def plot_Biphase(bits, startbit):
     fig, axs = plt.subplots(2, figsize=(6, 6), sharex=True)
     x, y = lcs.MANCHESTER(bits)
     axs[0].plot(x, y, linewidth=3)
@@ -62,7 +62,7 @@ def plot_Biphase(bits):
     axs[0].set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
     axs[0].set_yticklabels(['', '-1', '', '0', '', '1', ''])
     axs[0].grid()
-    x, y, ix0, i0, ix1, i1 = lcs.diff_MANCHESTER(bits)
+    x, y, ix0, i0, ix1, i1 = lcs.diff_MANCHESTER(bits, startbit)
     axs[1].plot(x, y, linewidth=3)
     axs[1].plot(ix0, i0, 'o', markeredgecolor="black", markerfacecolor="white", markersize=7, label="No Inversion: Next bit is 1")
     axs[1].plot(ix1, i1, 'ok', markersize=7, label="Inversion: Next bit is 0s")
